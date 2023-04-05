@@ -23,6 +23,10 @@ pub mod entities {
 
 pub mod repository {
     pub mod post_repository;
+    pub mod methods {
+        pub mod insert;
+        pub mod find_by_id;
+    }
 }
 
 pub mod services {
