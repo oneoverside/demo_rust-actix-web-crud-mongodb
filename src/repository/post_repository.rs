@@ -1,9 +1,6 @@
 use mongodb::{Client, Collection};
 use mongodb::options::ClientOptions;
-use bson::doc;
-use bson::oid::ObjectId;
 use crate::entities::post::Post;
-use crate::entities::errors::db_errors::Error;
 
 pub struct PostRepository {
     pub(crate) collection: Collection<Post>,

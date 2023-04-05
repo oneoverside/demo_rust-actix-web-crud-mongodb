@@ -1,21 +1,17 @@
+use std::str::FromStr;
 use actix_web::{get, web, HttpResponse, Responder};
 use bson::oid::ObjectId;
-
-use crate::entities::post::Post;
+use crate::services::use_cases::get_post::get_post;
 
 #[get("/get/{id}")]
-async fn get_post(_: web::Path<String>) -> impl Responder {
-    let person = Post {
-        _id: ObjectId::parse_str("507f1f77bcf86cd799439982").unwrap(),
-        title: String::from("123"),
-        connect: String::from(""),
-        author: String::from(""),
-        created_at: chrono::offset::Utc::now(),
-        updated_at: chrono::offset::Utc::now(),
+pub(crate) async fn get_post_route(id: web::Path<String>) -> impl Responder {
+    let id = ObjectId::from_str(&id.into_inner()).unwrap();
+    return match get_post(&id).await {
+        Some(value) => {
+            HttpResponse::Ok()
+                .content_type("application/json")
+                .body(serde_json::to_string(&value).unwrap())
+        },
+        None => HttpResponse::Ok().body("Post with this id isn't exist"),
     };
-    let json = serde_json::to_string(&person).unwrap();
-
-    HttpResponse::Ok()
-        .content_type("application/json")
-        .body(json)
 }

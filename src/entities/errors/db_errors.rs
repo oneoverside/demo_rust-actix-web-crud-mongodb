@@ -1,4 +1,5 @@
+#[derive(Debug)]
 pub enum Error {
-    ArgumentError(String),
-    DbIsUnavailable(String),
+    ArgumentError,
+    DbIsUnavailable,
 }

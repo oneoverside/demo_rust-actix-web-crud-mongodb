@@ -26,11 +26,15 @@ pub mod repository {
     pub mod methods {
         pub mod insert;
         pub mod find_by_id;
+        pub mod delete_by_id;
+        pub mod get_by_id;
     }
 }
 
 pub mod services {
     pub mod use_cases {
-        pub mod add_post_use_case;
+        pub mod add_post;
+        pub mod delete_post;
+        pub mod get_post;
     }
 }
