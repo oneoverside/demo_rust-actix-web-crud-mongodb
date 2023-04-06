@@ -1,5 +1,5 @@
 use bson::oid::ObjectId;
-use crate::repository::post_repository::PostRepository;
+use crate::repository::posts::post_repository::PostRepository;
 use crate::entities::errors::db_errors::Error;
 
 pub async fn delete_post(id: &ObjectId) -> Result<(), Error> {

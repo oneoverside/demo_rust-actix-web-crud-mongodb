@@ -1,6 +1,6 @@
 use bson::doc;
 use bson::oid::ObjectId;
-use crate::repository::post_repository::PostRepository;
+use crate::repository::posts::post_repository::PostRepository;
 
 impl PostRepository {
     pub async fn delete_by_id(&self, id: &ObjectId) {

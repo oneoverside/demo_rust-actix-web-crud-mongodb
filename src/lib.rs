@@ -8,7 +8,7 @@ pub mod presentation {
                 pub mod get_post;
                 pub mod add_post;
                 pub mod delete_post;
-                pub mod update_post;
+                pub mod update_route;
             }
         }
     }
@@ -22,12 +22,16 @@ pub mod entities {
 }
 
 pub mod repository {
-    pub mod post_repository;
-    pub mod methods {
-        pub mod insert;
-        pub mod find_by_id;
-        pub mod delete_by_id;
-        pub mod get_by_id;
+    pub mod posts {
+        pub mod post_repository;
+
+        pub mod methods {
+            pub mod add;
+            pub mod contains;
+            pub mod delete;
+            pub mod get;
+            pub mod update;
+        }
     }
 }
 
@@ -36,5 +40,6 @@ pub mod services {
         pub mod add_post;
         pub mod delete_post;
         pub mod get_post;
+        pub mod update;
     }
 }
